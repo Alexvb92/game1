@@ -1,9 +1,19 @@
 function Field(x,y) {
     this.x = x;
     this.y = y;
+    this.wep = false;
 }
 
+
+//placing the character at the center of the field
 var chara = new Field(0,0)
+
+
+chara.getwep = function() {
+    this.wep = true;
+    console.log(this)
+}
+
 
 document.onkeyup = function(e){
 
@@ -46,14 +56,29 @@ document.onkeyup = function(e){
             // code block
     }
 
-    if (chara.x == bads.x && chara.y == bads.y) {
+
+//getting the thing and win loss/conditions
+    if (chara.x == bads.x && chara.y == bads.y &&  chara.wep == false) {
         console.log('lose')
+    }
+    else if (chara.x == bads.x && chara.y == bads.y &&  chara.wep == true) {
+        console.log('win')
+    }
+    else if (chara.x == goods.x && chara.y == goods.y) {
+        console.log('got the thing')
+        chara.getwep();
     }
 
 
 }
 
+
+//setting the position of things in the field
 var bads = new Field(((Math.round(Math.random()) * 2 - 1) * Math.floor(Math.random()*11+1)), ((Math.round(Math.random()) * 2 - 1) * Math.floor(Math.random()*11+1)))
 
 console.log(bads)
+
+var goods = new Field(((Math.round(Math.random()) * 2 - 1) * Math.floor(Math.random()*11+1)), ((Math.round(Math.random()) * 2 - 1) * Math.floor(Math.random()*11+1)))
+
+console.log(goods)
 
