@@ -49,9 +49,11 @@ document.onkeyup = function(e){
     if (chara.x == bads.x && chara.y == bads.y) {
         console.log('lose')
     }
+
+
 }
 
-var bads = new Field(Math.floor(Math.random()*11+1), Math.floor(Math.random()*11+1))
+var bads = new Field(((Math.round(Math.random()) * 2 - 1) * Math.floor(Math.random()*11+1)), ((Math.round(Math.random()) * 2 - 1) * Math.floor(Math.random()*11+1)))
 
 console.log(bads)
 
