@@ -7,15 +7,15 @@ var chara = new Field(0,0)
 
 document.onkeyup = function(e){
 
-    //hitting 12 and stopping
+    console.log(e)
 
-        console.log(e)
-        switch(e.keyCode) {
+    switch(e.keyCode) {
         case 37:
             if (chara.x == -12) {
             console.log('cant go there')
             } else
             chara.x -= 1;
+            console.log(chara)
             //left
             break;
         case 38:
@@ -23,6 +23,7 @@ document.onkeyup = function(e){
             console.log('cant go there')
             } else
             chara.y += 1;
+            console.log(chara)
             // up
             break;
         case 39:
@@ -30,6 +31,7 @@ document.onkeyup = function(e){
             console.log('cant go there')
             } else
             chara.x += 1;
+            console.log(chara)
             //right
             break;
         case 40:
@@ -37,12 +39,19 @@ document.onkeyup = function(e){
             console.log('cant go there')
             } else
             chara.y -= 1;
+            console.log(chara)
             //down
             break;
         default:
             // code block
-        }
     }
 
+    if (chara.x == bads.x && chara.y == bads.y) {
+        console.log('lose')
+    }
+}
 
-var bads = new Field
+var bads = new Field(Math.floor(Math.random()*11+1), Math.floor(Math.random()*11+1))
+
+console.log(bads)
+
