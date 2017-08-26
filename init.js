@@ -72,6 +72,24 @@ document.onkeyup = function(e){
 
 }
 
+//Loop to create my grid
+$(document).ready(function() {
+    //this creates rows
+    for (j=0; j<12; j++){
+        var app = $(".app");
+        var gridrow = $("<div></div>");
+        app.append(gridrow);
+        gridrow.addClass( "row" + [j] + " row" );
+        //this appends tiles inside of the rows
+        for (i=0; i<12; i++) {
+            console.log('this is running');
+            var tile = $("<div></div>").text("O");
+            tile.addClass( "tile" + [j] + [i] + " col-xs-1" );
+            gridrow.append(tile);
+        }
+    }
+});
+
 
 //setting the position of things in the field
 var bads = new Field(((Math.round(Math.random()) * 2 - 1) * Math.floor(Math.random()*11+1)), ((Math.round(Math.random()) * 2 - 1) * Math.floor(Math.random()*11+1)))
