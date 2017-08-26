@@ -74,17 +74,60 @@ document.onkeyup = function(e){
 
 //Loop to create my grid
 $(document).ready(function() {
+    var letrow;
     //this creates rows
     for (j=0; j<12; j++){
         var app = $(".app");
         var gridrow = $("<div></div>");
         app.append(gridrow);
         gridrow.addClass( "row" + [j] + " row" );
+        //This switch is to help in lettering the rows
+        switch (j) {
+            case 0:
+                letrow = 'a'
+                break
+            case 1:
+                letrow = 'b'
+                break
+             case 2 :
+                letrow = 'c'
+                break
+             case 3 :
+                letrow = 'd'
+                break
+             case 4 :
+                letrow = 'e'
+                break
+             case 5 :
+                letrow = 'f'
+                break
+             case 6 :
+                letrow = 'g'
+                break
+             case 7 :
+                letrow = 'h'
+                break
+             case 8 :
+                letrow = 'i'
+                break
+             case 9 :
+                letrow = 'j'
+                break
+             case 10 :
+                letrow = 'k'
+                break
+             case 11 :
+                letrow = 'l'
+                break
+             case 12 :
+                letrow = 'm'
+                break
+        }
         //this appends tiles inside of the rows
         for (i=0; i<12; i++) {
             console.log('this is running');
             var tile = $("<div></div>").text("O");
-            tile.addClass( "tile" + [j] + [i] + " col-xs-1" );
+            tile.addClass( "tile" + letrow + [i] + " col-xs-1" );
             gridrow.append(tile);
         }
     }
