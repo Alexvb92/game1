@@ -6,8 +6,7 @@ function Field(x,y) {
 
 
 //placing the character at the center of the field
-var chara = new Field(6,6) //try making field numbers up to 144 with charaacter generating at like 64 or whatevr is cetner
-
+var chara = new Field(6,6)
 
 chara.getwep = function() {
     this.wep = true;
@@ -20,19 +19,23 @@ $(document).ready(function() {
 
     var letrow;
     //this creates rows
-    for (j=0; j<12; j++){
+    for (let j=0; j<12; j++){
         var app = $(".app");
         var gridrow = $("<div></div>");
         app.append(gridrow);
         gridrow.addClass( "row" + [j] + " row" );
 
         //this appends tiles inside of the rows
-        for (i=0; i<12; i++) {
+        for (let i=0; i<12; i++) {
             var tile = $("<div></div>").text("O");
             tile.addClass( "tile" + j + '-' + i + " col-xs-1" );
             gridrow.append(tile);
         }
     }
+
+
+// var c=document.getElementById("myCanvas");
+// var ctx=c.getContext("2d");
 
     document.onkeyup = function(e){
         //overwrite the characters previous place
