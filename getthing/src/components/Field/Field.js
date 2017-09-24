@@ -1,18 +1,35 @@
 import React from "react";
 
 
-    // $(".tile" +chara.x + "-" +chara.y).text('this')
-
-
-
 const tiles = [];
 
     for (let j=0; j<12; j++){
         for (let i=0; i<12; i++) {
-            var tile = ('tile:'+ j + '-' + i);
+            var tile = (j + '-' + i);
             tiles.push(tile)
          }
     }
+
+console.log(tiles)
+
+
+// const Genfield = tiles.map((tile) => <div className={tile + " col-xs-1"} key={tile} value="O"> O </div> )
+
+class Field extends React.Component {
+
+state = {
+    disp: 0
+};
+
+render(){
+    return(
+       <div> {tiles.map((tile) => <div className={tile + " col-xs-1"} key={tile} value="O"> O </div> )} </div>
+        )
+}
+
+    // $(".tile" +chara.x + "-" +chara.y).text('this')
+}
+
 
 
 // handleKeyPress = (event) => {
@@ -42,12 +59,11 @@ const tiles = [];
 
 // console.log(this)
 
-const Genfield = tiles.map((tile) => <div className={tile + " col-xs-1"} key={tile} value="O"> O </div> )
 
 
-const Field = (props) =>
-  // Setting the initial state of the Counter component
-  <div className="container"> {Genfield} </div>
+// const Field = (props) =>
+//   // Setting the initial state of the Counter component
+//   <div className="container"> {Genfield} </div>
 
 
 
