@@ -1,7 +1,11 @@
 import React from "react";
 
 
-const tiles = [];
+
+
+var generatetiles = function(tiles) {
+
+    var tiles = [];
 
     for (let j=0; j<12; j++){
         for (let i=0; i<12; i++) {
@@ -9,26 +13,56 @@ const tiles = [];
             tiles.push(tile)
          }
     }
+    return tiles
+}
 
-console.log(tiles)
 
 
 // const Genfield = tiles.map((tile) => <div className={tile + " col-xs-1"} key={tile} value="O"> O </div> )
 
 class Field extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+        disp: 0
+        };
+        this.generatetiles = generatetiles.bind(this);
 
-state = {
-    disp: 0
-};
+        }
 
-render(){
-    return(
-       <div> {tiles.map((tile) => <div className={tile + " col-xs-1"} key={tile} value="O"> O </div> )} </div>
-        )
+        componentWillMount(){
+            console.log(this)
+
+        }
+
+        componentDidMount(){
+    console.log(this.generatetiles()[0])
+        }
+    render(){
+
+                {console.log(this)}
+    // let tiles;
+        return(
+           <div> {generatetiles().map(function renderer1(tile) {
+                    return (
+                        <div className={tile + " col-xs-1"} key={tile} value='O'> O </div>
+                         )
+                }.bind(this))
+                } </div>
+            )
+    // }
+
+    console.log(this)
+    //  else {
+    //    return
+    // }
 }
 
     // $(".tile" +chara.x + "-" +chara.y).text('this')
 }
+
+{console.log(this)}
+{console.log(this.props)}
 
 
 
