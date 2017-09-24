@@ -15,11 +15,11 @@ const tiles = [];
     }
 
 
-handleKeyPress = (event) => {
-  if(event.key == 'Enter'){
-    console.log('enter press here! ')
-  }
-}
+// handleKeyPress = (event) => {
+//   if(event.key == 'Enter'){
+//     console.log('enter press here! ')
+//   }
+// }
 
 
 // const Genfield = tiles.map((tile) => <div className={tile + " col-xs-1"} key={tile} value="O"> O </div> )
