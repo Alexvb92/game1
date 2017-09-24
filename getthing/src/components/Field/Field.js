@@ -9,7 +9,8 @@ var generatetiles = function(tiles) {
 
     for (let j=0; j<12; j++){
         for (let i=0; i<12; i++) {
-            var tile = (j + '-' + i);
+            var tile = ({num: j + '-' + i,
+                        state: "J"});
             tiles.push(tile)
          }
     }
@@ -24,6 +25,7 @@ class Field extends React.Component {
             disp: 'O'
         };
         this.generatetiles = generatetiles.bind(this);
+        this.renderer1 = this.render.bind(this)
     }
 
     componentWillMount(){
@@ -31,22 +33,23 @@ class Field extends React.Component {
     }
 
         componentDidMount(){
-    console.log(this.generatetiles()[0])
+    // console.log(this.generatetiles()[0])
     }
 
     render(){
         {console.log(this)}
         // let tiles;
         return(
-           <div>
-                {generatetiles().map(function renderer1(tile)
+           <div className="renderfield">
+                {this.generatetiles().map(function renderer1(tile, ref, other)
                      {
+                        //console.log(other[ref].state)
                         return (
-                            <div className={tile + " col-xs-1"} key={tile} value='O'>
-                                {this.state.disp = 'X'}
+                            <div className={tile.num + " col-xs-1"} key={tile.num} value='O'>
+                                {other[ref].state}{console.log(this)}
                             </div>
-                            )
-                    }.bind(this))
+                            );
+                    },this)
                 }
             </div>
         )
