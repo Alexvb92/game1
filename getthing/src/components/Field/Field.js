@@ -17,53 +17,45 @@ var generatetiles = function(tiles) {
 }
 
 
-
-// const Genfield = tiles.map((tile) => <div className={tile + " col-xs-1"} key={tile} value="O"> O </div> )
-
 class Field extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-        disp: 0
+            disp: 'O'
         };
         this.generatetiles = generatetiles.bind(this);
+    }
 
-        }
-
-        componentWillMount(){
-            console.log(this)
-
-        }
+    componentWillMount(){
+        console.log(this)
+    }
 
         componentDidMount(){
     console.log(this.generatetiles()[0])
-        }
+    }
+
     render(){
-
-                {console.log(this)}
-    // let tiles;
+        {console.log(this)}
+        // let tiles;
         return(
-           <div> {generatetiles().map(function renderer1(tile) {
-                    return (
-                        <div className={tile + " col-xs-1"} key={tile} value='O'> O </div>
-                         )
-                }.bind(this))
-                } </div>
-            )
-    // }
-
+           <div>
+                {generatetiles().map(function renderer1(tile)
+                     {
+                        return (
+                            <div className={tile + " col-xs-1"} key={tile} value='O'>
+                                {this.state.disp = 'X'}
+                            </div>
+                            )
+                    }.bind(this))
+                }
+            </div>
+        )
     console.log(this)
-    //  else {
-    //    return
-    // }
-}
-
-    // $(".tile" +chara.x + "-" +chara.y).text('this')
+    }
 }
 
 {console.log(this)}
 {console.log(this.props)}
-
 
 
 // handleKeyPress = (event) => {
@@ -72,14 +64,7 @@ class Field extends React.Component {
 //   }
 // }
 
-
 // const Genfield = tiles.map((tile) => <div className={tile + " col-xs-1"} key={tile} value="O"> O </div> )
-
-
-
-
-
-
 
 // const Genfield =  React.createClass({
 //         render: function()(
@@ -92,8 +77,6 @@ class Field extends React.Component {
 //     }
 
 // console.log(this)
-
-
 
 // const Field = (props) =>
 //   // Setting the initial state of the Counter component
